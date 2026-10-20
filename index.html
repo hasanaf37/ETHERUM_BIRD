@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ETHERUM_BIRDS — Toko Burung Kicau & Peliharaan Pilihan</title>
+    <meta
+      name="description"
+      content="Koleksi burung pilihan untuk para pecinta burung. Temukan teman kicau favoritmu dan lihat koleksi yang tersedia di ETHERUM BIRD."
+    />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- ========================================================================
+       HEADER & NAVIGASI UTAMA
+       Susunan: Kiri (Logo) | Tengah (Menu Navigasi) | Paling Kanan (Keranjang & Akun)
+       ======================================================================== -->
+    <header class="site-header" id="siteHeader">
+      <div class="container header-inner">
+        <!-- Sebelah Kiri: Logo & Nama Toko + Tombol Setting Admin -->
+        <div class="brand-left-wrap">
+          <a
+            href="index.html"
+            class="brand-logo"
+            aria-label="Beranda ETHERUM BIRDS"
+          >
+            <div class="brand-icon">
+              <i data-lucide="feather"></i>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">ETHERUM_BIRDS</span>
+              <span class="brand-sub">Bird Shop</span>
+            </div>
+          </a>
+          <button
+            type="button"
+            class="icon-btn admin-trigger-btn"
+            id="headerAdminBtn"
+            aria-label="Login & Dashboard Admin"
+            title="Login Admin ETHERUM_BIRDS"
+          >
+            <i data-lucide="settings"></i>
+          </button>
+        </div>
+
+        <!-- Bagian Tengah: Navigasi Utama -->
+        <nav class="main-nav" id="mainNav" aria-label="Navigasi Utama">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link active">Beranda</a></li>
+            <li>
+              <a href="koleksi.html" class="nav-link" data-nav-link>Koleksi</a>
+            </li>
+            <li>
+              <a href="lokasi.html" class="nav-link" data-nav-link
+                >Lokasi Kios</a
+              >
+            </li>
+            <li>
+              <a href="penjual.html" class="nav-link" data-nav-link
+                >Info Penjual</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Bagian Paling Kanan: Keranjang Belanja & Akun Pengguna -->
+        <div class="header-actions">
+          <button
+            type="button"
+            class="icon-btn"
+            id="headerCartBtn"
+            aria-label="Buka Keranjang Belanja"
+            title="Keranjang Belanja"
+          >
+            <i data-lucide="shopping-bag"></i>
+            <span class="cart-badge" id="headerCartBadge">0</span>
+          </button>
+
+          <div class="account-wrapper">
+            <button
+              type="button"
+              class="icon-btn"
+              id="headerAccountBtn"
+              aria-label="Menu Akun Pengguna"
+              title="Akun Pengguna"
+            >
+              <i data-lucide="user"></i>
+            </button>
+
+            <!-- Dropdown Akun Frontend -->
+            <div class="account-dropdown" id="accountDropdown" role="menu">
+              <div class="account-dropdown-header">
+                <div class="account-dropdown-title">Akun ETHERUM BIRD</div>
+                <div class="account-dropdown-sub">Mode Pratinjau Frontend</div>
+              </div>
+              <button
+                type="button"
+                class="dropdown-item"
+                data-account-action="login"
+              >
+                <i data-lucide="log-in"></i>
+                <span>Masuk</span>
+              </button>
+              <button
+                type="button"
+                class="dropdown-item"
+                data-account-action="register"
+              >
+                <i data-lucide="user-plus"></i>
+                <span>Daftar Akun</span>
+              </button>
+              <button
+                type="button"
+                class="dropdown-item"
+                data-account-action="profile"
+              >
+                <i data-lucide="user-check"></i>
+                <span>Profil Saya</span>
+              </button>
+              <button
+                type="button"
+                class="dropdown-item"
+                data-account-action="orders"
+              >
+                <i data-lucide="clipboard-list"></i>
+                <span>Riwayat Pesanan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Tombol Menu Mobile (Hamburger) -->
+          <button
+            type="button"
+            class="icon-btn mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Buka Menu Navigasi"
+            title="Menu"
+          >
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ======================================================================
+         A. HERO SECTION (Dua Kolom pada Desktop)
+         ====================================================================== -->
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <!-- Kolom Kiri -->
+          <div class="hero-content">
+            <div class="hero-tag">
+              <i data-lucide="check-circle-2"></i>
+              <span>Galeri Kicau Pilihan & Terpercaya</span>
+            </div>
+            <h1 class="hero-title">Temukan Burung Kicau Favoritmu</h1>
+            <p class="hero-description">
+              Koleksi burung pilihan untuk para pecinta burung. Temukan teman
+              kicau favoritmu dan lihat koleksi yang tersedia di ETHERUM BIRD.
+            </p>
+            <div class="hero-actions">
+              <a href="koleksi.html" class="btn btn-primary">
+                <span>Lihat Koleksi</span>
+                <i data-lucide="arrow-right"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary js-whatsapp-link"
+              >
+                <i data-lucide="message-circle"></i>
+                <span>Hubungi Penjual</span>
+              </a>
+            </div>
+
+            <div class="hero-highlights">
+              <div class="highlight-item">
+                <div class="highlight-icon">
+                  <i data-lucide="shield-check"></i>
+                </div>
+                <div class="highlight-text">
+                  <strong>Koleksi Terawat</strong>
+                  <span>Perawatan harian terjaga</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon">
+                  <i data-lucide="message-square"></i>
+                </div>
+                <div class="highlight-text">
+                  <strong>Konsultasi Langsung</strong>
+                  <span>Tanya stok & pantau via WA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Foto Burung Kicau Realistis dengan Latar Alami -->
+          <div class="hero-visual">
+            <div class="hero-image-frame">
+              <img
+                src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=1000&q=85"
+                alt="Burung Kicau di ETHERUM BIRD"
+              />
+            </div>
+            <div class="hero-floating-card">
+              <div class="floating-badge-icon">
+                <i data-lucide="music"></i>
+              </div>
+              <div class="floating-badge-text">
+                <strong>ETHERUM BIRD</strong>
+                <span>Katalog Kicau Nusantara & Eksotis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+         B. KATEGORI BURUNG
+         ====================================================================== -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="section-badge">Kategori Pilihan</span>
+              <h2 class="section-title">Jelajahi Berdasarkan Kategori</h2>
+              <p class="section-subtitle">
+                Pilih kategori burung untuk langsung memfilter koleksi yang
+                sesuai dengan minat Anda.
+              </p>
+            </div>
+          </div>
+
+          <div class="category-grid" id="homeCategoryGrid">
+            <!-- Dirender secara dinamis oleh js/main.js dari BIRD_CATEGORIES -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+         C. KOLEKSI UNGGULAN
+         ====================================================================== -->
+      <section class="section section-white" id="koleksiUnggulan">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <span class="section-badge">Katalog Terpilih</span>
+              <h2 class="section-title">Koleksi Unggulan</h2>
+              <p class="section-subtitle">
+                Pilihan burung untuk menemani hobi kicau Anda.
+              </p>
+            </div>
+            <a href="koleksi.html" class="btn btn-outline">
+              <span>Lihat Semua</span>
+              <i data-lucide="arrow-up-right"></i>
+            </a>
+          </div>
+
+          <div class="products-grid-4" id="homeFeaturedGrid">
+            <!-- 4 Kartu Produk Unggulan dirender oleh js/main.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+         D. BAGIAN KEUNGGULAN
+         ====================================================================== -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header center">
+            <span class="section-badge">Mengapa ETHERUM BIRDS</span>
+            <h2 class="section-title">Kenyamanan Berbelanja untuk Penghobi</h2>
+            <p class="section-subtitle">
+              Kami mengutamakan keterbukaan informasi dan kemudahan komunikasi
+              sebelum Anda memutuskan membeli.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="feather"></i>
+              </div>
+              <h3 class="feature-title">Koleksi Burung Pilihan</h3>
+              <p class="feature-desc">
+                Beragam jenis burung kicau, burung hutan, lokal, hingga impor
+                yang diseleksi untuk para penghobi.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="tag"></i>
+              </div>
+              <h3 class="feature-title">Informasi Harga yang Jelas</h3>
+              <p class="feature-desc">
+                Setiap koleksi menampilkan informasi harga secara terbuka
+                sehingga memudahkan Anda menyesuaikan anggaran.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="phone-call"></i>
+              </div>
+              <h3 class="feature-title">Komunikasi Langsung dengan Penjual</h3>
+              <p class="feature-desc">
+                Hubungi penjual langsung melalui WhatsApp untuk menanyakan
+                detail kondisi atau memantau burung di kios.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="check-square"></i>
+              </div>
+              <h3 class="feature-title">Informasi Stok Mudah Diperiksa</h3>
+              <p class="feature-desc">
+                Status ketersediaan tertera langsung pada katalog produk dan
+                dapat dikonfirmasi ulang dengan cepat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+         E. BANNER PENUTUP
+         ====================================================================== -->
+      <section class="section" style="padding-top: 1rem">
+        <div class="container">
+          <div class="cta-banner">
+            <div class="cta-content">
+              <h2 class="cta-title">Sudah Menemukan Burung Favoritmu?</h2>
+              <p class="cta-desc">
+                Jelajahi koleksi ETHERUM BIRD dan pilih burung yang sesuai
+                dengan keinginanmu.
+              </p>
+            </div>
+            <a href="koleksi.html" class="btn btn-gold">
+              <span>Jelajahi Koleksi</span>
+              <i data-lucide="compass"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================================================
+       F. FOOTER
+       ======================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="brand-logo">
+              <div class="brand-icon">
+                <i data-lucide="feather"></i>
+              </div>
+              <div class="brand-text">
+                <span class="brand-name">ETHERUM BIRD</span>
+                <span class="brand-sub">Bird Shop</span>
+              </div>
+            </a>
+            <p class="footer-desc">
+              Toko penjualan burung kicau dan burung peliharaan untuk para
+              pecinta kicau. Lihat koleksi secara online dan hubungi kami untuk
+              pemesanan maupun kunjungan kios.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Navigasi Halaman</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="koleksi.html">Koleksi</a></li>
+              <li><a href="lokasi.html">Lokasi Kios</a></li>
+              <li><a href="penjual.html">Info Penjual</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading">Hubungi Penjual</h4>
+            <div class="footer-contact-info">
+              <span
+                >Konsultasi stok, harga, dan jadwal pantau langsung di kios
+                ETHERUM BIRD.</span
+              >
+            </div>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-gold btn-sm js-whatsapp-link"
+            >
+              <i data-lucide="message-circle"></i>
+              <span>Chat via WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>&copy; 2026 ETHERUM BIRD. Seluruh hak cipta dilindungi.</span>
+          <span>Tahap 2: Frontend Lengkap (Siap Integrasi Laravel)</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========================================================================
+       MODAL KERANJANG BELANJA INTERAKTIF
+       ======================================================================== -->
+    <div
+      class="modal-overlay"
+      id="cartModalOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cartModalTitle"
+    >
+      <div class="modal-box">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3 class="modal-title" id="cartModalTitle">Keranjang Belanja</h3>
+            <span class="modal-badge" id="modalCartBadge">0 Barang</span>
+          </div>
+          <button
+            type="button"
+            class="modal-close-btn"
+            id="closeCartModalBtn"
+            aria-label="Tutup Keranjang"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+
+        <div class="modal-body" id="cartModalBody">
+          <!-- Isi keranjang dirender secara dinamis oleh js/cart.js -->
+        </div>
+
+        <div class="modal-footer" id="cartModalFooter">
+          <!-- Total & tombol Batal / Beli dirender secara dinamis oleh js/cart.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+       MODAL DETAIL PRODUK
+       ======================================================================== -->
+    <div
+      class="modal-overlay"
+      id="productDetailModalOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="detailModalHeaderTitle"
+    >
+      <div class="modal-box modal-lg">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3 class="modal-title" id="detailModalHeaderTitle">
+              Detail Koleksi Burung
+            </h3>
+            <span class="modal-badge">Data Demo</span>
+          </div>
+          <button
+            type="button"
+            class="modal-close-btn"
+            id="closeDetailModalBtn"
+            aria-label="Tutup Detail"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="productDetailModalBody">
+          <!-- Detail produk dirender oleh openProductDetailModal() di js/main.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

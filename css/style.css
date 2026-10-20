@@ -1,0 +1,1788 @@
+/* ==========================================================================
+   SAMPADA BIRD - Stripe-Inspired Modern UI Stylesheet (style.css)
+   Karakter: Mesh Gradient, Diagonal Section, Crisp Grid Lines, Glassmorphism
+   ========================================================================== */
+
+:root {
+  /* Palet Warna Emerald & Gold (Dioptimalkan dengan Kontras Gaya Stripe) */
+  --color-dark-green: #0b241e; /* Lebih pekat seperti dark slate Stripe */
+  --color-primary-green: #1e5643; /* Emerald utama */
+  --color-accent-emerald: #10b981; /* Aksen cahaya mesh */
+  --color-light-green: #e6f2ec;
+  --color-white: #ffffff;
+  --color-cream: #f7f9f8; /* Latar bersih sedikit sejuk-alami */
+  --color-text-gray: #52635b;
+  --color-gold: #d4af6a;
+  --color-gold-light: #f5e6c8;
+
+  /* Warna Sistem & Garis Presisi */
+  --color-text-dark: #0a1f1a;
+  --color-border: rgba(19, 58, 46, 0.1);
+  --color-grid-line: rgba(19, 58, 46, 0.055);
+  --color-danger: #e11d48;
+  --color-danger-bg: #ffe4e6;
+  --color-overlay: rgba(10, 31, 26, 0.6);
+
+  /* Tipografi & Ukuran */
+  --font-main: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+  --container-width: 1220px;
+  --header-height: 76px;
+
+  /* Radius & Multi-layered Shadows khas Stripe */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  --shadow-xs:
+    0 2px 5px -1px rgba(11, 36, 30, 0.06), 0 1px 3px -1px rgba(11, 36, 30, 0.04);
+  --shadow-sm:
+    0 6px 12px -2px rgba(11, 36, 30, 0.08),
+    0 3px 7px -3px rgba(11, 36, 30, 0.05);
+  --shadow-md:
+    0 13px 27px -5px rgba(11, 36, 30, 0.12),
+    0 8px 16px -8px rgba(11, 36, 30, 0.08);
+  --shadow-lg:
+    0 30px 60px -12px rgba(11, 36, 30, 0.22),
+    0 18px 36px -18px rgba(11, 36, 30, 0.16);
+  --shadow-glow:
+    0 0 0 1px rgba(30, 86, 67, 0.08), 0 15px 35px -5px rgba(11, 36, 30, 0.12);
+
+  /* Transisi */
+  --transition-fast: 0.18s cubic-bezier(0.215, 0.61, 0.355, 1);
+  --transition-normal: 0.32s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Reset & Dasar */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-cream);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  /* Garis Struktur Vertikal Halus ala Stripe */
+  background-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent calc(50% - 610px),
+    var(--color-grid-line) calc(50% - 610px),
+    var(--color-grid-line) calc(50% - 609px),
+    transparent calc(50% - 609px),
+    transparent calc(50% + 609px),
+    var(--color-grid-line) calc(50% + 609px),
+    var(--color-grid-line) calc(50% + 610px),
+    transparent calc(50% + 610px),
+    transparent 100%
+  );
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Container & Layout */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+}
+
+.section {
+  padding: 5.5rem 0;
+  position: relative;
+}
+
+.section-white {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  /* Potongan miring halus pada section putih */
+  clip-path: polygon(0 24px, 100% 0, 100% calc(100% - 24px), 0 100%);
+  padding: 6.5rem 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.75rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.section-header.center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary-green);
+  background: linear-gradient(
+    90deg,
+    rgba(30, 86, 67, 0.12) 0%,
+    rgba(212, 175, 106, 0.18) 100%
+  );
+  border: 1px solid rgba(30, 86, 67, 0.15);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-gray);
+  margin-top: 0.5rem;
+  max-width: 580px;
+}
+
+/* ==========================================================================
+   TOMBOL BERGAYA STRIPE (Pill-shaped & Hover Arrow Slide)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.45rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+}
+
+.btn i,
+.btn svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+/* Efek panah bergeser ke kanan saat di-hover seperti Stripe */
+.btn:hover:not(:disabled) svg {
+  transform: translateX(3px);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #256852 0%, var(--color-dark-green) 100%);
+  color: var(--color-white);
+  box-shadow:
+    0 4px 12px rgba(11, 36, 30, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #2d7a60 0%, #0e2f27 100%);
+  transform: translateY(-1.5px);
+  box-shadow:
+    0 8px 20px rgba(11, 36, 30, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--color-dark-green);
+  border: 1px solid rgba(19, 58, 46, 0.18);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-white);
+  border-color: var(--color-primary-green);
+  transform: translateY(-1.5px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-outline {
+  background-color: var(--color-white);
+  color: var(--color-dark-green);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn-outline:hover:not(:disabled) {
+  border-color: var(--color-primary-green);
+  color: var(--color-primary-green);
+  background-color: var(--color-light-green);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #dfbe7f 0%, #c49b50 100%);
+  color: var(--color-dark-green);
+  font-weight: 700;
+  box-shadow:
+    0 6px 18px rgba(196, 155, 80, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.btn-gold:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(196, 155, 80, 0.45);
+}
+
+.btn-sm {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.84rem;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   HEADER GLASSMORPHISM (Kiri: Logo | Tengah: Menu | Kanan: Keranjang & Akun)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  height: var(--header-height);
+  background-color: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid rgba(19, 58, 46, 0.08);
+  transition: all var(--transition-fast);
+}
+
+.site-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Kiri: Brand Logo */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-self: start;
+}
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-green) 0%,
+    var(--color-dark-green) 100%
+  );
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow:
+    0 4px 10px rgba(11, 36, 30, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.brand-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-name {
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-dark-green);
+}
+
+.brand-sub {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-primary-green);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Tengah: Navigasi Desktop ala Pill Stripe */
+.main-nav {
+  justify-self: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: rgba(19, 58, 46, 0.04);
+  padding: 0.3rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(19, 58, 46, 0.06);
+}
+
+.nav-link {
+  position: relative;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-gray);
+  padding: 0.45rem 1.05rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-dark-green);
+}
+
+.nav-link.active {
+  background-color: var(--color-white);
+  color: var(--color-dark-green);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Paling Kanan: Keranjang & Akun */
+.header-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.icon-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark-green);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-fast);
+}
+
+.icon-btn:hover {
+  background-color: var(--color-light-green);
+  border-color: var(--color-primary-green);
+  color: var(--color-primary-green);
+  transform: translateY(-1px);
+}
+
+.icon-btn svg {
+  width: 19px;
+  height: 19px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-green),
+    var(--color-dark-green)
+  );
+  color: var(--color-white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-white);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-fast);
+}
+
+.cart-badge.bump {
+  transform: scale(1.3);
+}
+
+/* Dropdown Akun Pengguna */
+.account-wrapper {
+  position: relative;
+}
+
+.account-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 240px;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.97);
+  transform-origin: top right;
+  transition: all var(--transition-fast);
+  z-index: 950;
+}
+
+.account-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.account-dropdown-header {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 0.35rem;
+}
+
+.account-dropdown-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+}
+
+.account-dropdown-sub {
+  font-size: 0.72rem;
+  color: var(--color-text-gray);
+}
+
+.dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.dropdown-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-primary-green);
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-light-green);
+  color: var(--color-dark-green);
+  transform: translateX(3px);
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* ==========================================================================
+   HERO SECTION GAYA STRIPE (Animated Mesh Gradient & Diagonal Cut)
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  padding: 4.5rem 0 6.5rem;
+  overflow: hidden;
+  /* Mesh Gradient Halus dengan Warna Emerald, Gold, dan Mint */
+  background-color: var(--color-white);
+  background-image:
+    radial-gradient(at 12% 15%, rgba(16, 185, 129, 0.14) 0px, transparent 50%),
+    radial-gradient(at 88% 10%, rgba(212, 175, 106, 0.22) 0px, transparent 52%),
+    radial-gradient(at 75% 82%, rgba(30, 86, 67, 0.15) 0px, transparent 55%),
+    radial-gradient(at 25% 88%, rgba(230, 242, 236, 0.9) 0px, transparent 50%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Efek cahaya bergerak lembut di belakang Hero */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: -140px;
+  right: -120px;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 106, 0.25) 0%,
+    rgba(16, 185, 129, 0.12) 45%,
+    transparent 70%
+  );
+  filter: blur(55px);
+  pointer-events: none;
+  animation: pulseMesh 10s ease-in-out infinite alternate;
+}
+
+@keyframes pulseMesh {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-40px, 30px) scale(1.1);
+  }
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 3.75rem;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.95rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(30, 86, 67, 0.18);
+  box-shadow: var(--shadow-xs);
+  color: var(--color-primary-green);
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 1.35rem;
+}
+
+.hero-tag svg {
+  width: 15px;
+  height: 15px;
+  color: var(--color-gold);
+}
+
+/* Tipografi Gradient gelap ala Stripe */
+.hero-title {
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 1.12;
+  margin-bottom: 1.35rem;
+  letter-spacing: -0.035em;
+  background: linear-gradient(135deg, #071915 0%, #1e5643 60%, #9e7b3b 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.06rem;
+  color: var(--color-text-gray);
+  margin-bottom: 2.15rem;
+  max-width: 530px;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.hero-highlights {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  margin-top: 2.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.highlight-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
+  color: var(--color-primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.highlight-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.highlight-text strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--color-dark-green);
+}
+
+.highlight-text span {
+  font-size: 0.76rem;
+  color: var(--color-text-gray);
+}
+
+/* Visual Hero Kanan (Mockup Card Berlapis ala Stripe) */
+.hero-visual {
+  position: relative;
+  perspective: 1200px;
+}
+
+.hero-image-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background-color: var(--color-white);
+  padding: 10px;
+  aspect-ratio: 4 / 3.45;
+  transform: rotateY(-4deg) rotateX(2deg);
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.hero-image-frame:hover {
+  transform: rotateY(0deg) rotateX(0deg) translateY(-4px);
+}
+
+.hero-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 8px);
+}
+
+/* Floating Glass Card di Pojok Gambar Hero */
+.hero-floating-card {
+  position: absolute;
+  bottom: -20px;
+  left: -24px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  padding: 0.95rem 1.25rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.floating-badge-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--color-dark-green),
+    var(--color-primary-green)
+  );
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-xs);
+}
+
+.floating-badge-text strong {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--color-dark-green);
+}
+
+.floating-badge-text span {
+  font-size: 0.74rem;
+  color: var(--color-text-gray);
+}
+
+/* ==========================================================================
+   KATEGORI BURUNG (Kartu Interaktif Bersih)
+   ========================================================================== */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.15rem;
+}
+
+.category-card {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+}
+
+.category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-green),
+    var(--color-gold)
+  );
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(30, 86, 67, 0.25);
+}
+
+.category-card:hover::before {
+  opacity: 1;
+}
+
+.category-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    var(--color-light-green) 0%,
+    #ffffff 100%
+  );
+  border: 1px solid rgba(30, 86, 67, 0.12);
+  color: var(--color-primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.category-card:hover .category-icon {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-green),
+    var(--color-dark-green)
+  );
+  color: var(--color-gold);
+  transform: scale(1.06);
+}
+
+.category-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.category-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+}
+
+.category-desc {
+  font-size: 0.75rem;
+  color: var(--color-text-gray);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   KARTU PRODUK (Gaya Katalog SaaS / E-Commerce Modern)
+   ========================================================================== */
+.products-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.product-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-xs);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(30, 86, 67, 0.22);
+}
+
+.product-thumb-wrapper {
+  position: relative;
+  aspect-ratio: 4 / 3.2;
+  background-color: var(--color-light-green);
+  overflow: hidden;
+}
+
+.product-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.product-card:hover .product-thumb {
+  transform: scale(1.06);
+}
+
+.stock-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.02em;
+}
+
+.stock-badge.in-stock {
+  background-color: rgba(11, 36, 30, 0.82);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.stock-badge.out-stock {
+  background-color: rgba(225, 29, 72, 0.9);
+  color: var(--color-white);
+}
+
+.demo-tag {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  color: var(--color-dark-green);
+  font-size: 0.66rem;
+  font-weight: 600;
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  box-shadow: var(--shadow-xs);
+}
+
+.product-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-category {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-primary-green);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.product-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  margin-bottom: 0.55rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.product-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary-green);
+  margin-top: auto;
+  margin-bottom: 1.1rem;
+}
+
+.product-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+.product-actions .btn {
+  padding: 0.55rem 0.65rem;
+  font-size: 0.78rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   BAGIAN KEUNGGULAN (Stripe Bento-Grid Style)
+   ========================================================================== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(30, 86, 67, 0.2);
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--color-dark-green) 0%,
+    var(--color-primary-green) 100%
+  );
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 6px 14px rgba(11, 36, 30, 0.16);
+}
+
+.feature-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.feature-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  margin-bottom: 0.5rem;
+  padding-left: 0.65rem;
+  border-left: 2.5px solid var(--color-gold); /* Aksen garis vertikal khas Stripe */
+}
+
+.feature-desc {
+  font-size: 0.86rem;
+  color: var(--color-text-gray);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   BANNER PENUTUP & FOOTER DARK ENTERPRISE
+   ========================================================================== */
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(at 90% 15%, rgba(212, 175, 106, 0.28) 0px, transparent 50%),
+    radial-gradient(at 15% 85%, rgba(16, 185, 129, 0.22) 0px, transparent 55%),
+    linear-gradient(135deg, #091e19 0%, #174636 100%);
+  border-radius: var(--radius-lg);
+  padding: 3.75rem 3.5rem;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cta-content {
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.cta-desc {
+  color: var(--color-light-green);
+  font-size: 0.98rem;
+  opacity: 0.9;
+}
+
+.site-footer {
+  background-color: var(--color-dark-green);
+  color: var(--color-light-green);
+  padding: 5rem 0 2.25rem;
+  margin-top: 2rem;
+  clip-path: polygon(0 28px, 100% 0, 100% 100%, 0 100%);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(230, 242, 236, 0.12);
+}
+
+.footer-brand .brand-name {
+  color: var(--color-white);
+}
+
+.footer-brand .brand-sub {
+  color: var(--color-gold);
+}
+
+.footer-desc {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: rgba(230, 242, 236, 0.75);
+  max-width: 380px;
+  line-height: 1.65;
+}
+
+.footer-heading {
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold);
+  margin-bottom: 1.15rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: rgba(230, 242, 236, 0.8);
+  transition: all var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-white);
+  transform: translateX(3px);
+  display: inline-block;
+}
+
+.footer-contact-info {
+  font-size: 0.88rem;
+  color: rgba(230, 242, 236, 0.78);
+  margin-bottom: 1.25rem;
+}
+
+.footer-bottom {
+  padding-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(230, 242, 236, 0.55);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   MODAL KERANJANG, MODAL DETAIL & RINGKASAN PESANAN (Glass & Clean Sheet)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-overlay);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px) scale(0.97);
+  transition: transform var(--transition-normal);
+  overflow: hidden;
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0) scale(1);
+}
+
+.modal-box.modal-lg {
+  max-width: 800px;
+}
+
+.modal-header {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-white);
+}
+
+.modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+}
+
+.modal-badge {
+  background-color: var(--color-light-green);
+  color: var(--color-primary-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.22rem 0.7rem;
+  border-radius: var(--radius-full);
+}
+
+.modal-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-gray);
+  background-color: var(--color-cream);
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background-color: var(--color-light-green);
+  color: var(--color-dark-green);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 1.4rem 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal-footer {
+  padding: 1.2rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-cream);
+}
+
+/* Item Keranjang Belanja */
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 76px 1fr auto;
+  gap: 1rem;
+  padding: 0.95rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  align-items: center;
+  box-shadow: var(--shadow-xs);
+}
+
+.cart-item-img {
+  width: 76px;
+  height: 76px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background-color: var(--color-light-green);
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cart-item-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+}
+
+.cart-item-price {
+  font-size: 0.82rem;
+  color: var(--color-text-gray);
+}
+
+.cart-item-subtotal {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-primary-green);
+  margin-top: 0.15rem;
+}
+
+.cart-item-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+}
+
+.qty-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-cream);
+}
+
+.qty-btn {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  transition: background-color var(--transition-fast);
+}
+
+.qty-btn:hover:not(:disabled) {
+  background-color: var(--color-light-green);
+}
+
+.qty-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.qty-value {
+  min-width: 34px;
+  text-align: center;
+  font-size: 0.86rem;
+  font-weight: 700;
+  background-color: var(--color-white);
+  height: 30px;
+  line-height: 30px;
+}
+
+.remove-item-btn {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--color-danger);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.22rem 0.5rem;
+  border-radius: 6px;
+  transition: background-color var(--transition-fast);
+}
+
+.remove-item-btn:hover {
+  background-color: var(--color-danger-bg);
+}
+
+.remove-item-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.cart-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cart-total-label {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--color-text-gray);
+}
+
+.cart-total-amount {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+}
+
+.cart-footer-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr;
+  gap: 0.85rem;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 2.75rem 1rem;
+}
+
+.empty-state-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--color-light-green), #ffffff);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.empty-state-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.empty-state-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  margin-bottom: 0.35rem;
+}
+
+.empty-state-sub {
+  font-size: 0.9rem;
+  color: var(--color-text-gray);
+  margin-bottom: 1.5rem;
+}
+
+/* Modal Detail Produk */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 1.85rem;
+  align-items: start;
+}
+
+.detail-img-box {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-light-green);
+  aspect-ratio: 4 / 3.5;
+  box-shadow: var(--shadow-sm);
+}
+
+.detail-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primary-green);
+  letter-spacing: 0.08em;
+}
+
+.detail-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  margin: 0.25rem 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.detail-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary-green);
+  margin-bottom: 1rem;
+}
+
+.detail-meta-list {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.84rem;
+}
+
+.detail-meta-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.detail-meta-label {
+  color: var(--color-text-gray);
+}
+
+.detail-meta-val {
+  font-weight: 600;
+  color: var(--color-dark-green);
+  text-align: right;
+}
+
+.detail-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-gray);
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+}
+
+.detail-qty-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.detail-qty-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.detail-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+/* Ringkasan Checkout */
+.checkout-notice {
+  background-color: var(--color-light-green);
+  border-left: 4px solid var(--color-primary-green);
+  padding: 0.9rem 1rem;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  color: var(--color-dark-green);
+  margin-bottom: 1.15rem;
+}
+
+.checkout-summary-list {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.checkout-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  background-color: var(--color-white);
+}
+
+.checkout-item-row:last-child {
+  border-bottom: none;
+}
+
+/* Toast Notification */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 360px;
+}
+
+.toast {
+  background-color: rgba(11, 36, 30, 0.95);
+  backdrop-filter: blur(10px);
+  color: var(--color-white);
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-left: 4px solid var(--color-gold);
+  animation: slideInRight 0.25s ease forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================================
+   STYLING HALAMAN KOLEKSI, LOKASI, & PENJUAL (Siap untuk Tahap 2)
+   ========================================================================== */
+.page-header {
+  background-color: var(--color-white);
+  background-image:
+    radial-gradient(at 85% 20%, rgba(212, 175, 106, 0.18) 0px, transparent 50%),
+    radial-gradient(at 15% 80%, rgba(16, 185, 129, 0.12) 0px, transparent 50%);
+  border-bottom: 1px solid var(--color-border);
+  padding: 2.75rem 0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-gray);
+  margin-bottom: 0.6rem;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-primary-green);
+}
+
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.filter-panel {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  position: sticky;
+  top: calc(var(--header-height) + 1.5rem);
+  box-shadow: var(--shadow-xs);
+}
+
+.filter-group {
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filter-group:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+}
+
+.filter-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  margin-bottom: 0.75rem;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-cream);
+  font-size: 0.88rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--color-primary-green);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(30, 86, 67, 0.12);
+  outline: none;
+}
+
+.radio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.86rem;
+  color: var(--color-text-dark);
+  cursor: pointer;
+}
+
+.radio-label input {
+  accent-color: var(--color-primary-green);
+}
+
+.price-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.catalog-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--color-white);
+  padding: 0.95rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
+  flex-wrap: wrap;
+}
+
+.products-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.mobile-filter-toggle {
+  display: none;
+}
+
+.info-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.info-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2.15rem;
+  box-shadow: var(--shadow-sm);
+}

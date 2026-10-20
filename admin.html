@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Admin — ETHERUM_BIRDS</title>
+  <meta name="description" content="Halaman Dashboard Admin ETHERUM_BIRDS untuk memonitor penjualan burung serta mengelola koleksi dan stok burung." />
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="admin-page-body">
+
+  <!-- ========================================================================
+       HEADER DASHBOARD ADMIN
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <div class="brand-left-wrap">
+        <a href="index.html" class="brand-logo" aria-label="Beranda ETHERUM_BIRDS">
+          <div class="brand-icon"><i data-lucide="feather"></i></div>
+          <div class="brand-text">
+            <span class="brand-name">ETHERUM_BIRDS</span>
+            <span class="brand-sub">Admin Dashboard</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigasi Tab Admin di Tengah Header (Muncul saat sudah login) -->
+      <nav class="main-nav" id="adminHeaderNav" aria-label="Menu Admin" hidden>
+        <ul class="nav-list">
+          <li>
+            <button type="button" class="nav-link active" data-admin-page-tab="sales">
+              <i data-lucide="bar-chart-3" style="width:15px;height:15px;vertical-align:-2px;margin-right:4px;"></i>
+              Monitor Penjualan
+            </button>
+          </li>
+          <li>
+            <button type="button" class="nav-link" data-admin-page-tab="stock">
+              <i data-lucide="package-plus" style="width:15px;height:15px;vertical-align:-2px;margin-right:4px;"></i>
+              Kelola Stok Burung
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Aksi Kanan: Lihat Toko & Keluar Admin -->
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-outline btn-sm">
+          <i data-lucide="store"></i>
+          <span>Lihat Toko</span>
+        </a>
+        <button type="button" class="btn btn-primary btn-sm" id="adminPageLogoutBtn" hidden>
+          <i data-lucide="log-out"></i>
+          <span>Keluar</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       KONTEN UTAMA 1 LAYAR PENUH (LOGIN ADMIN ATAU DASHBOARD ADMIN)
+       ======================================================================== -->
+  <main class="admin-main-wrapper">
+    <div class="container" id="adminPageRoot">
+      <!-- Dirender secara dinamis oleh js/admin.js -->
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="padding-top:0;">
+        <span>&copy; 2026 ETHERUM_BIRDS — Panel Administrator</span>
+        <span>Terhubung dengan Database Supabase</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script JavaScript -->
+  <script src="js/data.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

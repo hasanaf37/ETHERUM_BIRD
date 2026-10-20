@@ -1,0 +1,227 @@
+/* ==========================================================================
+   SAMPADA BIRD - Stripe-Inspired Responsive Stylesheet (responsive.css)
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .products-grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .header-inner {
+    grid-template-columns: auto 1fr;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    padding: 1rem 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-fast);
+    z-index: 890;
+  }
+
+  .main-nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    gap: 0.35rem;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav-link.active {
+    background-color: var(--color-light-green);
+    color: var(--color-primary-green);
+    box-shadow: none;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-image-frame {
+    transform: none;
+  }
+
+  .hero-floating-card {
+    left: 12px;
+    bottom: 12px;
+  }
+
+  .products-grid-4,
+  .products-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .catalog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-filter-toggle {
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .filter-panel {
+    display: none;
+    position: static;
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-panel.active {
+    display: block;
+  }
+
+  .detail-grid,
+  .info-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.75rem 1.75rem;
+  }
+}
+
+@media (max-width: 540px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section-white {
+    clip-path: polygon(0 14px, 100% 0, 100% calc(100% - 14px), 0 100%);
+    padding: 4.5rem 0;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-section {
+    padding: 2.5rem 0 3.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.05rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-highlights {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .products-grid-4,
+  .products-grid-3,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .modal-box {
+    max-height: 94vh;
+    width: 100%;
+  }
+
+  .cart-item {
+    grid-template-columns: 64px 1fr;
+  }
+
+  .cart-item-controls {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.55rem;
+    border-top: 1px dashed var(--color-border);
+  }
+
+  .cart-footer-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+  }
+}

@@ -1,0 +1,870 @@
+/* ==========================================================================
+   SAMPADA BIRD - Styling Tambahan Halaman Koleksi, Lokasi & Penjual (pages.css)
+   Dimuat setelah style.css dan sebelum responsive.css.
+   ========================================================================== */
+
+/* ---------- Utilitas ---------- */
+.btn-block {
+  width: 100%;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Katalog ---------- */
+.input-icon-wrap {
+  position: relative;
+}
+
+.input-icon-wrap > svg,
+.input-icon-wrap > i {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-gray);
+  pointer-events: none;
+}
+
+.input-icon-wrap .form-input {
+  padding-left: 2.3rem;
+}
+
+.filter-count {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-gray);
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.05rem 0.5rem;
+  min-width: 26px;
+  text-align: center;
+}
+
+.catalog-count {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-gray);
+}
+
+.catalog-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+.catalog-sort .form-select {
+  width: auto;
+  min-width: 170px;
+  cursor: pointer;
+}
+
+.catalog-empty {
+  background-color: var(--color-white);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.product-thumb-wrapper img[data-fallback="1"] {
+  object-fit: contain;
+  background-color: var(--color-light-green);
+  padding: 2rem;
+}
+
+/* ---------- Kartu Informasi (Lokasi & Penjual) ---------- */
+.info-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.info-card-sub {
+  font-size: 0.9rem;
+  color: var(--color-text-gray);
+  margin-bottom: 1.4rem;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+}
+
+.info-row {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.info-row-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background-color: var(--color-light-green);
+  color: var(--color-primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-row-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.info-row-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-gray);
+  margin-bottom: 0.15rem;
+}
+
+.info-row-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  word-break: break-word;
+}
+
+.info-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.map-frame {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background-color: var(--color-light-green);
+  display: block;
+}
+
+.map-card {
+  padding: 0.75rem;
+  overflow: hidden;
+}
+
+/* ---------- Langkah Kunjungan ---------- */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+.step-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-xs);
+  position: relative;
+}
+
+.step-number {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.4rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  line-height: 1;
+}
+
+/* ---------- Profil Penjual ---------- */
+.seller-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.seller-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--color-dark-green), var(--color-primary-green));
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 18px rgba(11, 36, 30, 0.18);
+}
+
+.seller-avatar svg {
+  width: 34px;
+  height: 34px;
+}
+
+.seller-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+}
+
+.seller-role {
+  font-size: 0.85rem;
+  color: var(--color-text-gray);
+}
+
+.seller-bio {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--color-text-gray);
+  margin-bottom: 1.5rem;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.stat-box {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-green);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.74rem;
+  color: var(--color-text-gray);
+  font-weight: 500;
+}
+
+/* ---------- FAQ ---------- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-dark-green);
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.faq-question svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.faq-item.open .faq-question svg {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 1.15rem 1.1rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--color-text-gray);
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 860px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-frame {
+    height: 300px;
+  }
+}
+
+@media (max-width: 540px) {
+  .catalog-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .catalog-sort .form-select {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .info-card {
+    padding: 1.4rem;
+  }
+
+  .info-actions .btn {
+    width: 100%;
+  }
+
+  .stats-row {
+    gap: 0.5rem;
+  }
+}
+
+
+/* ---------- Modal Autentikasi & Akun ---------- */
+.auth-modal-box {
+  max-width: 450px;
+}
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-border);
+  padding: 0.3rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.35rem;
+}
+
+.auth-tab {
+  padding: 0.55rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-text-gray);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.auth-tab.active {
+  background-color: var(--color-primary-green);
+  color: var(--color-white);
+  box-shadow: var(--shadow-xs);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-dark-green);
+}
+
+.auth-alert {
+  background-color: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid rgba(225, 29, 72, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.95rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.icon-btn.is-logged-in {
+  background-color: var(--color-light-green);
+  color: var(--color-primary-green);
+  border-color: rgba(30, 86, 67, 0.25);
+}
+
+.dropdown-item-danger {
+  color: var(--color-danger) !important;
+}
+
+.orders-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.order-history-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.95rem 1.1rem;
+  background-color: var(--color-cream);
+}
+
+.order-history-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  font-size: 0.78rem;
+}
+
+.order-history-date {
+  color: var(--color-text-gray);
+}
+
+.order-history-status {
+  background-color: var(--color-light-green);
+  color: var(--color-primary-green);
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.order-history-items {
+  border-top: 1px dashed var(--color-border);
+  border-bottom: 1px dashed var(--color-border);
+  padding: 0.55rem 0;
+  font-size: 0.86rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.order-item-line span {
+  color: var(--color-text-gray);
+  font-size: 0.8rem;
+}
+
+.order-history-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.55rem;
+  font-size: 0.88rem;
+  color: var(--color-dark-green);
+}
+
+.form-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.auth-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-primary-green);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.auth-link-btn:hover {
+  text-decoration: underline;
+}
+
+.auth-helper-text {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--color-text-gray);
+  margin-bottom: 1.1rem;
+}
+
+.auth-bottom-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.otp-code-input {
+  letter-spacing: 0.28em;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+
+/* ---------- Tombol Setting Admin di Sebelah Kanan ETHERUM_BIRDS ---------- */
+.brand-left-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-self: start;
+}
+
+.admin-trigger-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-cream);
+  color: var(--color-primary-green);
+}
+
+.admin-trigger-btn:hover {
+  background-color: var(--color-light-green);
+  transform: rotate(35deg);
+}
+
+.admin-trigger-btn.is-admin-active {
+  background-color: var(--color-dark-green);
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* ---------- Modal Dashboard Admin ---------- */
+.admin-dashboard-modal {
+  max-width: 960px !important;
+  width: 96%;
+}
+
+.admin-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-tabs {
+  display: inline-flex;
+  gap: 0.4rem;
+  background-color: var(--color-cream);
+  padding: 0.3rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+
+.admin-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1.05rem;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-text-gray);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.admin-tab-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.admin-tab-btn.active {
+  background-color: var(--color-primary-green);
+  color: var(--color-white);
+  box-shadow: var(--shadow-xs);
+}
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1.4rem;
+}
+
+.admin-stat-card {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.95rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.admin-stat-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-gray);
+}
+
+.admin-stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+}
+
+.admin-stat-note {
+  font-size: 0.74rem;
+  color: var(--color-text-gray);
+}
+
+.admin-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.admin-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+}
+
+.admin-section-sub {
+  font-size: 0.82rem;
+  color: var(--color-text-gray);
+}
+
+.admin-form-card {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-form-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-dark-green);
+  margin-bottom: 0.85rem;
+}
+
+.admin-form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.admin-table-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.admin-order-row,
+.admin-stock-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+}
+
+.admin-order-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-order-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.2rem;
+}
+
+.admin-order-date {
+  font-size: 0.76rem;
+  color: var(--color-text-gray);
+}
+
+.admin-order-items {
+  font-size: 0.84rem;
+  color: var(--color-text-gray);
+  margin-bottom: 0.25rem;
+}
+
+.admin-order-total {
+  font-size: 0.86rem;
+  color: var(--color-dark-green);
+}
+
+.admin-order-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.admin-status-select {
+  width: auto;
+  min-width: 180px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.admin-stock-thumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: var(--color-light-green);
+}
+
+.admin-stock-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-stock-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--color-text-gray);
+  margin-top: 0.15rem;
+}
+
+.text-in-stock {
+  color: var(--color-primary-green);
+  font-weight: 600;
+}
+
+.text-out-stock {
+  color: var(--color-danger);
+  font-weight: 600;
+}
+
+.admin-stock-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-order-row,
+  .admin-stock-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-order-actions,
+  .admin-stock-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 540px) {
+  .admin-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-tabs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin-tab-btn {
+    justify-content: center;
+  }
+}
+
+
+/* ---------- Halaman Penuh Dashboard Admin (admin.html) ---------- */
+.admin-page-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-main-wrapper {
+  flex: 1;
+  padding: 2.25rem 0 3.5rem;
+}
+
+.admin-fullpage-login-wrap {
+  max-width: 460px;
+  margin: 2.5rem auto;
+}
+
+.admin-fullpage-login-card {
+  padding: 2rem;
+}
+
+.admin-page-banner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.admin-page-panel {
+  padding: 1.75rem;
+}
+
+#adminHeaderNav .nav-link {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#adminHeaderNav .nav-link.active {
+  background-color: var(--color-white);
+  color: var(--color-dark-green);
+  box-shadow: var(--shadow-xs);
+}

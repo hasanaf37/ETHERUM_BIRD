@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koleksi Burung — SAMPADA BIRD</title>
+  <meta name="description" content="Jelajahi koleksi burung kicau, burung hutan, lokal, dan impor di SAMPADA BIRD. Filter berdasarkan kategori, harga, dan ketersediaan stok." />
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- ========================================================================
+       HEADER & NAVIGASI UTAMA
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <div class="brand-left-wrap">
+        <a href="index.html" class="brand-logo" aria-label="Beranda ETHERUM_BIRDS">
+          <div class="brand-icon"><i data-lucide="feather"></i></div>
+          <div class="brand-text">
+            <span class="brand-name">ETHERUM_BIRDS</span>
+            <span class="brand-sub">Bird Shop</span>
+          </div>
+        </a>
+        <button type="button" class="icon-btn admin-trigger-btn" id="headerAdminBtn" aria-label="Login & Dashboard Admin" title="Login Admin ETHERUM_BIRDS">
+          <i data-lucide="settings"></i>
+        </button>
+      </div>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navigasi Utama">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link" data-nav-link>Beranda</a></li>
+          <li><a href="koleksi.html" class="nav-link active" data-nav-link>Koleksi</a></li>
+          <li><a href="lokasi.html" class="nav-link" data-nav-link>Lokasi Kios</a></li>
+          <li><a href="penjual.html" class="nav-link" data-nav-link>Info Penjual</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="icon-btn" id="headerCartBtn" aria-label="Buka Keranjang Belanja" title="Keranjang Belanja">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-badge" id="headerCartBadge">0</span>
+        </button>
+
+        <div class="account-wrapper">
+          <button type="button" class="icon-btn" id="headerAccountBtn" aria-label="Menu Akun Pengguna" title="Akun Pengguna">
+            <i data-lucide="user"></i>
+          </button>
+          <div class="account-dropdown" id="accountDropdown" role="menu">
+            <div class="account-dropdown-header">
+              <div class="account-dropdown-title">Akun SAMPADA BIRD</div>
+              <div class="account-dropdown-sub">Mode Pratinjau Frontend</div>
+            </div>
+            <button type="button" class="dropdown-item" data-account-action="login"><i data-lucide="log-in"></i><span>Masuk</span></button>
+            <button type="button" class="dropdown-item" data-account-action="register"><i data-lucide="user-plus"></i><span>Daftar Akun</span></button>
+            <button type="button" class="dropdown-item" data-account-action="profile"><i data-lucide="user-check"></i><span>Profil Saya</span></button>
+            <button type="button" class="dropdown-item" data-account-action="orders"><i data-lucide="clipboard-list"></i><span>Riwayat Pesanan</span></button>
+          </div>
+        </div>
+
+        <button type="button" class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Buka Menu Navigasi" title="Menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         PAGE HEADER
+         ====================================================================== -->
+    <section class="page-header">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Beranda</a><span>›</span><span>Koleksi</span>
+        </div>
+        <h1 class="section-title">Koleksi Burung</h1>
+        <p class="section-subtitle">Lihat daftar burung yang tersedia di SAMPADA BIRD. Gunakan filter untuk menemukan burung yang sesuai.</p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         KATALOG: FILTER + GRID PRODUK
+         ====================================================================== -->
+    <section class="section">
+      <div class="container">
+        <button type="button" class="btn btn-outline mobile-filter-toggle" id="mobileFilterToggle" aria-controls="filterPanel" aria-expanded="false">
+          <i data-lucide="sliders-horizontal"></i>
+          <span>Tampilkan Filter</span>
+        </button>
+
+        <div class="catalog-layout">
+          <!-- Panel Filter -->
+          <aside class="filter-panel" id="filterPanel" aria-label="Filter Koleksi">
+            <form id="filterForm" autocomplete="off">
+              <div class="filter-group">
+                <h2 class="filter-title">Cari Burung</h2>
+                <div class="input-icon-wrap">
+                  <i data-lucide="search"></i>
+                  <input type="search" class="form-input" id="filterSearch" placeholder="Contoh: Kepodang" />
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <h2 class="filter-title">Kategori</h2>
+                <div class="radio-list" id="filterCategoryList">
+                  <!-- Dirender oleh js/koleksi.js dari BIRD_CATEGORIES -->
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <h2 class="filter-title">Rentang Harga (Rp)</h2>
+                <div class="price-inputs">
+                  <input type="number" class="form-input" id="filterPriceMin" placeholder="Min" min="0" step="10000" inputmode="numeric" />
+                  <input type="number" class="form-input" id="filterPriceMax" placeholder="Maks" min="0" step="10000" inputmode="numeric" />
+                </div>
+              </div>
+
+              <div class="filter-group">
+                <h2 class="filter-title">Ketersediaan</h2>
+                <label class="radio-label">
+                  <input type="checkbox" id="filterInStock" />
+                  <span>Hanya yang tersedia</span>
+                </label>
+              </div>
+
+              <button type="reset" class="btn btn-outline btn-block" id="filterResetBtn">
+                <i data-lucide="rotate-ccw"></i>
+                <span>Reset Filter</span>
+              </button>
+            </form>
+          </aside>
+
+          <!-- Area Produk -->
+          <div>
+            <div class="catalog-toolbar">
+              <span class="catalog-count" id="catalogCount" aria-live="polite">Memuat koleksi...</span>
+              <div class="catalog-sort">
+                <label for="sortSelect">Urutkan:</label>
+                <select class="form-select" id="sortSelect">
+                  <option value="newest">Terbaru</option>
+                  <option value="price-asc">Harga Terendah</option>
+                  <option value="price-desc">Harga Tertinggi</option>
+                  <option value="name-asc">Nama A–Z</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="products-grid-3" id="collectionGrid"></div>
+
+            <div class="empty-state catalog-empty" id="catalogEmpty" hidden>
+              <div class="empty-state-icon"><i data-lucide="search-x"></i></div>
+              <h4 class="empty-state-title">Burung tidak ditemukan.</h4>
+              <p class="empty-state-sub">Coba ubah kata kunci atau reset filter.</p>
+              <button type="button" class="btn btn-primary" id="emptyResetBtn">Reset Filter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon"><i data-lucide="feather"></i></div>
+            <div class="brand-text">
+              <span class="brand-name">SAMPADA BIRD</span>
+              <span class="brand-sub">Bird Shop</span>
+            </div>
+          </a>
+          <p class="footer-desc">
+            Toko penjualan burung kicau dan burung peliharaan untuk para pecinta kicau. Lihat koleksi secara online dan hubungi kami untuk pemesanan maupun kunjungan kios.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Navigasi Halaman</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="koleksi.html">Koleksi</a></li>
+            <li><a href="lokasi.html">Lokasi Kios</a></li>
+            <li><a href="penjual.html">Info Penjual</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Hubungi Penjual</h4>
+          <div class="footer-contact-info">
+            <span>Konsultasi stok, harga, dan jadwal pantau langsung di kios SAMPADA BIRD.</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm js-whatsapp-link">
+            <i data-lucide="message-circle"></i>
+            <span>Chat via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 SAMPADA BIRD. Seluruh hak cipta dilindungi.</span>
+        <span>Tahap 2: Frontend Lengkap (Siap Integrasi Laravel)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL KERANJANG BELANJA -->
+  <div class="modal-overlay" id="cartModalOverlay" role="dialog" aria-modal="true" aria-labelledby="cartModalTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="modal-title" id="cartModalTitle">Keranjang Belanja</h3>
+          <span class="modal-badge" id="modalCartBadge">0 Barang</span>
+        </div>
+        <button type="button" class="modal-close-btn" id="closeCartModalBtn" aria-label="Tutup Keranjang"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body" id="cartModalBody"></div>
+      <div class="modal-footer" id="cartModalFooter"></div>
+    </div>
+  </div>
+
+  <!-- MODAL DETAIL PRODUK -->
+  <div class="modal-overlay" id="productDetailModalOverlay" role="dialog" aria-modal="true" aria-labelledby="detailModalHeaderTitle">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h3 class="modal-title" id="detailModalHeaderTitle">Detail Koleksi Burung</h3>
+          <span class="modal-badge">Data Demo</span>
+        </div>
+        <button type="button" class="modal-close-btn" id="closeDetailModalBtn" aria-label="Tutup Detail"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body" id="productDetailModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Script JavaScript -->
+  <script src="js/data.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/koleksi.js"></script>
+</body>
+</html>
